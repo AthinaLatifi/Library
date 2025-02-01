@@ -1,7 +1,7 @@
 # Library
 The project is a Spring Boot and MySQL-based application designed for managing books in a library. It supports features such as adding, editing, and deleting books, user management, loan tracking, and reporting. The system includes RBAC for security, Spring Security for authentication, and data export capabilities in PDF/Excel.
 
-## Technologies Used
+# Technologies Used
 - Java 17
 - SpringBoot
   - SpringBoot DevTools
@@ -15,7 +15,7 @@ The project is a Spring Boot and MySQL-based application designed for managing b
 - Spring Session
 - WAMP Server (for database management)
 
-## Installation
+# Installation
 
 1. Clone the repository at your console or PowerShell:
    git clone https://github.com/AthinaLatifi/Library.git
@@ -28,11 +28,11 @@ The project is a Spring Boot and MySQL-based application designed for managing b
 7. Choose the type maven.
 8. For dependencies add the above technologies all except from java 17 and wamp server. 
 
-##Database Setup
+# Database Setup
 Import the provided SQL file (mybook(1).sql) into your WAMP Server's MySQL database.
 Ensure that the database connection settings in your application properties match your WAMP Server configuration.
 
-##USAGE
+# USAGE
 Start the WAMP Server to ensure the MySQL database is running.
 Configure your application properties (e.g., application.properties or application.yml) to connect to your MySQL database.
 Access the application in your web browser at http://localhost:8080.
