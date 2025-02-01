@@ -13,9 +13,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="Class" />
         <option value="com.intellij.jpb.JpaEntity" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -102,6 +102,8 @@
       <workItem from="1738254177624" duration="10359000" />
       <workItem from="1738350279297" duration="34000" />
       <workItem from="1738353052431" duration="18000" />
+      <workItem from="1738353387466" duration="188000" />
+      <workItem from="1738363460482" duration="5585000" />
     </task>
     <servers />
   </component>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>My Borrowed Books</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      color: #333;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      color: #e68dbb;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    th, td {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid #e68dbb;
+    }
+
+    th {
+      background-color: #e68dbb;
+      color: white;
+    }
+
+    tr:hover {
+      background-color: rgba(230, 141, 187, 0.2);
+    }
+
+    button {
+      background-color: #e68dbb;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      margin-right: 5px;
+    }
+
+    button:hover {
+      background-color: rgba(230, 141, 187, 0.8);
+    }
+
+    a {
+      display: inline-block;
+      margin-top: 20px;
+      text-align: center;
+      color: #e68dbb;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <h1>My Borrowed Books</h1>
+  <h2 th:text="'Welcome, ' + ${user.username}"></h2>
+  <p th:text="'Your ID: ' + ${user.id}"></p>
+
+  <table>
+    <thead>
+    <tr>
+      <th>Book Title</th>
+      <th>Author</th>
+      <th>Borrowed Date</th>
+      <th>Return Date</th>
+      <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="borrowedBook : ${borrowedBooks}">
+      <td th:text="${borrowedBook.book.title}"></td>
+      <td th:text="${borrowedBook.book.author}"></td>
+      <td th:text="${borrowedBook.borrowedDate}"></td>
+      <td th:text="${borrowedBook.returnDate}"></td>
+      <td>
+        <form th:action="@{/return}" method="post" style="display:inline;">
+          <input type="hidden" th:name="borrowedId" th:value="${borrowedBook.id}"/>
+          <button type="submit">Return</button>
+        </form>
+        <form th:action="@{/extend-return-date}" method="post" style="display:inline;">
+          <input type="hidden" th:name="borrowedId" th:value="${borrowedBook.id}"/>
+          <button type="submit">Extend</button>
+        </form>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+  <a href="/user">Back to User Page</a>
+</div>
+</body>
+</html>

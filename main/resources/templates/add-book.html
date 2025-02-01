@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add Book</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      color: #e68dbb;
+    }
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    label {
+      display: block;
+      margin: 10px 0 5px;
+      font-weight: bold;
+    }
+    input[type="text"],
+    input[type="number"],
+    textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+    input[type="submit"],
+    .return-button {
+      background-color: #e68dbb;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      width: 45%;
+      text-align: center;
+      text-decoration: none;
+    }
+    input[type="submit"]:hover,
+    .return-button:hover {
+      background-color: #d05a9a;
+    }
+    .button-container {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 15px;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <h1>Add a New Book</h1>
+  <form action="/add-book" method="post">
+    <label for="isbn">ISBN:</label>
+    <input type="text" id="isbn" name="isbn" required>
+
+    <label for="title">Title:</label>
+    <input type="text" id="title" name="title" required>
+
+    <label for="authorName">Author Name:</label>
+    <input type="text" id="authorName" name="authorName" required>
+
+    <label for="summary">Summary:</label>
+    <textarea id="summary" name="summary" required></textarea>
+
+    <label for="stock">Stock:</label>
+    <input type="number" id="stock" name="stock" required>
+
+    <div class="button-container">
+      <input type="submit" value="Add Book">
+      <a href="/books" class="return-button">Return</a>
+    </div>
+  </form>
+</div>
+</body>
+</html>

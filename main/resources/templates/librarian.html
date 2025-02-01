@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stockholms Library - Librarian Dashboard</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+    .navbar {
+      background-color: #e68dbb;
+      color: white;
+      padding: 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-title h1 {
+      color: white;
+      margin: 0;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-button {
+      background-color: transparent;
+      color: white;
+      border: 2px solid white;
+      padding: 10px 15px;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background-color 0.3s, color 0.3s;
+      margin-left: 20px;
+    }
+
+    .nav-button:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+      color: #e68dbb;
+    }
+    .container {
+      max-width: 95%;
+      margin: 20px auto;
+      padding: 20px;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    h2 {
+      text-align: center;
+      color: #333;
+    }
+    h3 {
+      color: #e68dbb;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    th, td {
+      padding: 10px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+    th {
+      background-color: #e68dbb;
+      color: white;
+    }
+    tr:hover {
+      background-color: #f1f1f1;
+    }
+
+  </style>
+</head>
+<body>
+<div class="navbar">
+  <div class="nav-title">
+    <h1>Stockholms Library</h1>
+  </div>
+  <div class="nav-links">
+    <a href="books" class="nav-button">Manage Books</a>
+    <form action="logout" method="post" class="nav-form">
+      <button type="submit" class="nav-button">Logout</button>
+    </form>
+  </div>
+</div>
+<div class="container">
+  <h2>Welcome, Librarian</h2>
+  <h3>Books Inventory</h3>
+  <table>
+    <thead>
+    <tr>
+      <th>ISBN</th>
+      <th>Stock</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="book : ${books}">
+      <td th:text="${book.isbn}"></td>
+      <td th:text="${book.stock}"></td>
+    </tr>
+    <tr th:if="${#lists.isEmpty(books)}">
+      <td colspan="2">No books available</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+</body>
+</html>

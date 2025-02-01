@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <link rel="stylesheet" th:href="@{/css/styles.css}" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .navbar {
+            background-color: #e68dbb;
+            color: white;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-title h1 {
+            color: white;
+            margin: 0;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-button {
+            background-color: transparent;
+            color: white;
+            border: 2px solid white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s, color 0.3s;
+            margin-left: 20px;
+        }
+
+        .nav-button:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            color: #e68dbb;
+        }
+
+        h1, h2 {
+            color: #333;
+            margin: 20px 0;
+        }
+
+        h1 {
+            font-size: 24px;
+        }
+
+        h2 {
+            font-size: 20px;
+            margin-top: 30px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f2f2f2;
+            color: #333;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        @media screen and (max-width: 600px) {
+            .navbar li {
+                float: none;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="navbar">
+        <div class="nav-title">
+            <h1>Stockholms Library</h1>
+        </div>
+        <div class="nav-links">
+            <a href="/admin" class="nav-button">Home</a>
+            <a href="/books" class="nav-button">Books Management</a>
+            <a href="/musers" class="nav-button">Users</a>
+            <a href="/export" class="nav-button">Export File</a>
+            <form action="logout" method="post" class="nav-form">
+                <button type="submit" class="nav-button">Logout</button>
+            </form>
+        </div>
+</div>
+
+<h1>Welcome to the Admin Page</h1>
+<h1>Admin Analytics</h1>
+<h2>Total Number of Books: <span th:text="${totalNumberOfBooks}"></span></h2>
+<h2>Total Stock of All Books: <span th:text="${totalStock}"></span></h2>
+
+<h2>Books with Low Stock</h2>
+<table>
+    <thead>
+    <tr>
+        <th>Title</th>
+        <th>Stock</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="book : ${lowStockBooks}">
+        <td th:text="${book.title}"></td>
+        <td th:text="${book.stock}"></td>
+    </tr>
+    </tbody>
+</table>
+
+<h2>Most Borrowed Books</h2>
+<table>
+    <thead>
+    <tr>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Borrow Count</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="book : ${mostBorrowedBooks}">
+        <td th:text="${book.title}"></td>
+        <td th:text="${book.author}"></td>
+        <td th:text="${book.borrowCount}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
