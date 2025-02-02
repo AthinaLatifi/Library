@@ -89,9 +89,7 @@ CREATE TABLE IF NOT EXISTS `books` (
 
 INSERT INTO `books` (`id`, `isbn`, `title`, `stock`, `summary`, `author`, `borrow_count`) VALUES
 (6, '978-3-16-148410-0', 'The Art of Programming', 5, 'An essential guide to mastering programming techniques.', 'Carl Sagan', NULL),
-(8, '978-0-596-52068-7', 'Cooking Made Simple', 19, 'A beginner-friendly cookbook with easy and delicious recipes.', NULL, NULL),
 (10, '978-0-14-044926-6', 'The Ancient World', 7, 'A fascinating look at the civilizations of the ancient past.', 'Carl ', NULL),
-(13, '978-3-16-148410-0', 'The Great Gatsby', 0, 'A novel set in the Roaring Twenties that tells the story of Jay Gatsby\'s unrequited love for Daisy Buchanan.', 'F. Scott Fitzgerald', NULL),
 (14, '978-0-7432-7356-5', 'To Kill a Mockingbird', 0, 'A coming-of-age story that deals with serious issues like racial injustice and moral growth in the Deep South.', 'Harper Lee', NULL),
 (15, '978-0-452-28423-4', '1984', 0, 'A dystopian novel that explores the dangers of totalitarianism and extreme political ideology.', 'George Orwell', NULL),
 (16, '978-0-06-112008-4', 'The Catcher in the Rye', 0, 'A story about teenage angst and alienation, narrated by the iconic character Holden Caulfield.', 'J.D. Salinger', NULL);
