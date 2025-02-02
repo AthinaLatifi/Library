@@ -29,7 +29,7 @@ The project is a Spring Boot and MySQL-based application designed for managing b
 8. For dependencies add the above technologies all except from java 17 and wamp server. 
 
 # Database Setup
-Import the provided SQL file (mybook(1).sql) into your WAMP Server's MySQL database.
+Import the provided SQL file (mybook.sql) into your WAMP Server's MySQL database.
 Ensure that the database connection settings in your application properties match your WAMP Server configuration.
 
 # USAGE
